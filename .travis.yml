@@ -1,0 +1,18 @@
+---
+os: osx
+language: cpp
+sudo: enabled
+git:
+  depth: 1
+script: date > build/release.txt
+after_success: true
+deploy:
+  provider: releases
+  api_key: 9b1887e714cb8da0421121e5ca12ddf523eb36f0
+  file: build/release.txt
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: false
+    repo: hthrowaway/travis-github-release
+    branch: master
