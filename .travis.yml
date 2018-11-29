@@ -17,6 +17,5 @@ deploy:
   skip_cleanup: true
   overwrite: true
   on:
-    tags: true
     repo: hthrowaway/travis-github-release
-    branch: master
+    condition: $TRAVIS_BRANCH == "master" || -n $TRAVIS_TAG
