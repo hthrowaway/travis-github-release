@@ -18,4 +18,4 @@ deploy:
   overwrite: true
   on:
     repo: hthrowaway/travis-github-release
-    condition: $TRAVIS_BRANCH == "master" || -n $TRAVIS_TAG
+    condition: $TRAVIS_BRANCH == "master" || ! -z $TRAVIS_TAG
