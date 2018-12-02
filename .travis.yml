@@ -10,13 +10,13 @@ env:
     - secure: "aVXxO73nFQA4bTeYE82dWsz7oZV7bU2A1O4KiTWqqHwVvuFygboiMAjGCx7sA/1+PrC4ia8x+LuQUe5RM3PeNPySUmx8m516wzkcRDtDkwZGEoTEW42gHZ6rI8AaQJ+qh+dBDVX7QalhYTh6fRMAntkr4neO3gFmgxKnlR/VULUG0ejyTXUtnyMcxlUsqHjNkVNr4Cx0Ml+lDsrYHf8JgaXEgzVgWq2qoDX09a30b903jTLix98iuyc77Ge0JW3bXRVI7WyV0m6vBcpzBuaKanfRxIjcti/DrvCzk7ZlBgM9gYIK8qK/Eb7Ee7u6tcGMfGliFLd4JhEYi8Pq76SmF2FUbib2YTZ4i49ijWvud2hYLMoQ0efD6qK5Z8xz8rMDZwXhxEoBz3sFEGPCMoVUxgkQFnf8V9yZaol4+AmHBJwnBMooAXAdjKkp7a+SI7j6LZJe6+AUze0NccnLUePuuJ/4qTVAqNSygRvAitDeUfB/TQKmzT2LUYSNQ9hFOVv4jH5QxW5GSPxz/DorV+vcfH3fZxL7w4FlloV3PHI8JYuu38c5IRRRdreNAJGkdRKp/eos1MmRhWFcf7kNqUcCOWQNyTC/z74Eg4MsBbjLdRJp76EWGC3UwkoFb0QqYEX/HMm+xe4IhhBY3+SeeHk2EcbSnHhNrlCZAoNYyNA7ynE="
 script: date > build/release.txt
 after_success: env
-deploy:
-  provider: releases
-  api_key: $GITHUB_OAUTH_TOKEN
-  file: build/release.txt
-  skip_cleanup: true
-  overwrite: true
-  on:
-    repo: hthrowaway/travis-github-release
-    tags: true
-    # condition: ${TRAVIS_BRANCH} == "master" && ! -z $TRAVIS_TAG
+#deploy:
+#  provider: releases
+#  api_key: $GITHUB_OAUTH_TOKEN
+#  file: build/release.txt
+#  skip_cleanup: true
+#  overwrite: true
+#  on:
+#    repo: hthrowaway/travis-github-release
+#    tags: true
+#    condition: ${TRAVIS_BRANCH} == "master" && -n $TRAVIS_TAG
