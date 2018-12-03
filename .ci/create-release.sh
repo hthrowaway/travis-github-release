@@ -7,8 +7,10 @@ set -euo pipefail
 IFS=$'\n\t'
 
 
-# TRAVIS_BRANCH="master"
-# TRAVIS_COMMIT_MESSAGE="merge foo bar into myname/ge32"
+TRAVIS_BRANCH="master"
+TRAVIS_COMMIT_MESSAGE="merge foo bar into myname/gen 32
+
+foobar"
 
 set +eu
 
@@ -26,7 +28,7 @@ declare release_filename
 # Ticket name can safely be assumed based on the regexp /(gen[^0-9]+[0-9]+)/i.
 if [[ "${TRAVIS_BRANCH:-}" == "master" ]]; then
   shopt -s nocasematch
-  pattern="(gen[^0-9]+[0-9]+[^0-9]*)"
+  pattern="(gen[^0-9]+[0-9]+)[^0-9]*"
   if [[ "${TRAVIS_COMMIT_MESSAGE:-}" =~ $pattern ]];then
     declare jira_ticket_id
     jira_ticket_id=$(echo "${BASH_REMATCH[1]}" | tr '[:lower:]' '[:upper:]')
