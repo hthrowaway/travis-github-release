@@ -21,8 +21,7 @@ deploy:
   on:
     repo: hthrowaway/travis-github-release
     # create release on merge to 'master'.
-    condition: TRAVIS_BRANCH == "master"
     # create release on tag.
-    condition: -n TRAVIS_TAG
+    condition: $TRAVIS_BRANCH == "master" || -n $TRAVIS_TAG
 
     # TODO: Post to Slack
