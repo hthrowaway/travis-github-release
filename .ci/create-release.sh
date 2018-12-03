@@ -35,3 +35,5 @@ if [[ -n "$TRAVIS_TAG" ]]; then
 fi
 
 mv "${TRAVIS_BUILD_DIR}/build/release.tgz"  "${TRAVIS_BUILD_DIR}/build/${RELEASE_FILENAME}.tgz"
+
+set +x
