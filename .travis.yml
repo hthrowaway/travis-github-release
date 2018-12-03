@@ -20,6 +20,7 @@ deploy:
   skip_cleanup: true
   overwrite: true
   on:
+    tags: true 
     repo: hthrowaway/travis-github-release
     # create release on merge to 'master'.
     # create release on tag.
