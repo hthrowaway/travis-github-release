@@ -23,5 +23,4 @@ deploy:
     # create release on merge to 'master'.
     # create release on tag.
     condition: $TRAVIS_BRANCH == "master" || -n $TRAVIS_TAG
-
     # TODO: Post to Slack
