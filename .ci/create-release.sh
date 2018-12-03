@@ -4,7 +4,13 @@ set -x
 set -euo pipefail
 IFS=$'\n\t'
 
-shopt -s nocasematch
+
+# TRAVIS_BRANCH="master"
+# TRAVIS_COMMIT_MESSAGE="merge foo bar into housni/g"
+
+set +e
+
+
 
 if [[ "$TRAVIS_BRANCH" != "master" ]] && [[ -z "$TRAVIS_TAG" ]]; then
   echo "You are not merging into master nor is a tag present."
@@ -28,6 +34,14 @@ if [[ "$TRAVIS_BRANCH" == "master" ]]; then
     set -x && exit 1
   fi
 fi
+
+
+
+
+echo "RELEASE_FILENAME: $RELEASE_FILENAME"
+
+
+
 
 # On tag, generate [GIT_TAG].tgz release
 if [[ -n "$TRAVIS_TAG" ]]; then
