@@ -20,7 +20,7 @@ if [[ "${TRAVIS_BRANCH:-}" != "master" ]] && [[ -z "${TRAVIS_TAG:-}" ]]; then
 fi
 
 declare pattern
-declare RELEASE_FILENAME
+declare release_filename
 
 # On merge to 'master', generate [jira_ticket_id].app.tgz release.
 # Ticket name can safely be assumed based on the regexp /(gen[^0-9]+[0-9]+)/i.
@@ -30,7 +30,7 @@ if [[ "${TRAVIS_BRANCH:-}" == "master" ]]; then
   if [[ "${TRAVIS_COMMIT_MESSAGE:-}" =~ $pattern ]];then
     declare jira_ticket_id
     jira_ticket_id=$(echo "${BASH_REMATCH[1]}" | tr '[:lower:]' '[:upper:]')
-    export RELEASE_FILENAME=${jira_ticket_id// /-} # replace spaces with hyphens
+    release_filename=${jira_ticket_id// /-} # replace spaces with hyphens
   else
     echo "ERROR: Unable to get JIRA branch name from the merge to master."
     set -x && exit 1
@@ -39,9 +39,9 @@ fi
 
 # On tag, generate [GIT_TAG].tgz release
 if [[ -n "${TRAVIS_TAG:-}" ]]; then
-  export RELEASE_FILENAME="$TRAVIS_TAG"
+  release_filename="$TRAVIS_TAG"
 fi
 
-mv "${TRAVIS_BUILD_DIR}/build/release.tgz"  "${TRAVIS_BUILD_DIR}/build/${RELEASE_FILENAME}.tgz"
+mv "${TRAVIS_BUILD_DIR}/build/release.tgz"  "${TRAVIS_BUILD_DIR}/build/${release_filename}.tgz"
 
 set +x
