@@ -3,8 +3,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
 shopt -s nocasematch
 
 if [[ "$TRAVIS_BRANCH" != "master" ]] && [[ -z "$TRAVIS_TAG" ]]; then
@@ -35,4 +33,4 @@ if [[ -n "$TRAVIS_TAG" ]]; then
   export RELEASE_FILENAME="$TRAVIS_TAG"
 fi
 
-mv "${DIR}/build/release.tgz"  "${DIR}/build/${RELEASE_FILENAME}.tgz"
+mv "${TRAVIS_BUILD_DIR}/build/release.tgz"  "${TRAVIS_BUILD_DIR}/build/${RELEASE_FILENAME}.tgz"
