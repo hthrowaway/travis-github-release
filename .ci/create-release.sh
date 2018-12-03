@@ -8,7 +8,7 @@ IFS=$'\n\t'
 # TRAVIS_BRANCH="master"
 # TRAVIS_COMMIT_MESSAGE="merge foo bar into housni/g"
 
-set +e
+set +eu
 
 
 
